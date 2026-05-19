@@ -197,3 +197,15 @@ FROM Cinema
 WHERE MOD(id,2) <> 0
 AND description <> 'boring'
 ORDER BY rating DESC;
+
+-- Day 14 | Question 17
+-- LeetCode #627. Swap Sex of Employees
+-- Difficulty: Easy
+-- Topic: UPDATE + CASE
+-- Write a solution to swap all 'f' and 'm' values.
+
+UPDATE Salary
+SET sex = CASE
+              WHEN sex = 'f' THEN 'm'
+              ELSE 'f'
+          END;
