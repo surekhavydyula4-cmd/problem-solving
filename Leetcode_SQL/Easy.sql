@@ -209,3 +209,14 @@ SET sex = CASE
               WHEN sex = 'f' THEN 'm'
               ELSE 'f'
           END;
+
+-- Day 14 | Question 18
+-- LeetCode #1050. Actors and Directors Who Cooperated At Least Three Times
+-- Difficulty: Easy
+-- Topic: GROUP BY + HAVING
+--  find all the pairs (actor_id, director_id) where the actor has cooperated with the director at least three times.
+
+SELECT actor_id,director_id
+FROM Actordirector 
+GROUP BY actor_id,director_id
+HAVING COUNT(*)>=3;
