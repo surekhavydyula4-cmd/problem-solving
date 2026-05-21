@@ -231,3 +231,16 @@ SELECT product_name,year,price
 FROM Sales s
 JOIN Product p
 ON s.product_id=p.product_id;
+
+-- Day 15 | Question 20
+-- LeetCode #1075. Project Employees I
+-- Difficulty: Easy
+-- Topic: INNER JOIN + GROUP BY + AVG +ROUND
+-- Write an SQL query that reports the average experience years of all the employees for each project, rounded to 2 digits.
+
+SELECT p.project_id,
+       ROUND(AVG(e.experience_years),2) AS average_years
+FROM Project p
+JOIN Employee e
+ON p.employee_id=e.employee_id
+GROUP BY p.project_id;
