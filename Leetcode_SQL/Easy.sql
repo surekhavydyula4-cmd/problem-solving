@@ -220,3 +220,14 @@ SELECT actor_id,director_id
 FROM Actordirector 
 GROUP BY actor_id,director_id
 HAVING COUNT(*)>=3;
+
+-- Day 15 | Question 19
+-- LeetCode #1068. Product Sales Analysis I
+-- Difficulty: Easy
+-- Topic: INNER Join
+--  Report the product_name, year, and price for each sale_id in the Sales table.
+
+SELECT product_name,year,price
+FROM Sales s
+JOIN Product p
+ON s.product_id=p.product_id;
