@@ -244,3 +244,17 @@ FROM Project p
 JOIN Employee e
 ON p.employee_id=e.employee_id
 GROUP BY p.project_id;
+
+-- Day 15 | Question 21
+-- LeetCode #1084. Sales Analysis III
+-- Difficulty: Easy
+-- Topic: INNER JOIN + GROUP BY + MIN + MAX
+-- report the products that were only sold in the first quarter of 2019. 
+
+SELECT p.product_id, p.product_name
+FROM Product p
+JOIN Sales s
+ON p.product_id = s.product_id
+GROUP BY p.product_id, p.product_name
+HAVING MIN(s.sale_date) >= '2019-01-01'
+AND MAX(s.sale_date) <= '2019-03-31';
