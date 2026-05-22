@@ -258,3 +258,16 @@ ON p.product_id = s.product_id
 GROUP BY p.product_id, p.product_name
 HAVING MIN(s.sale_date) >= '2019-01-01'
 AND MAX(s.sale_date) <= '2019-03-31';
+
+-- Day 16 | Question 22
+-- LeetCode #1141. User Activity for the Past 30 Days I
+-- Difficulty: Easy
+-- Topic: COUNT(DISTINCT) + DATE_SUB
+-- Find the number of active users for each day during the past 30 days ending on 2019-07-27.
+
+SELECT activity_date AS day,
+       COUNT(DISTINCT(user_id)) AS active_users
+FROM Activity
+WHERE activity_date BETWEEN DATE_SUB('2019-07-27', INTERVAL 29 DAY)
+AND '2019-07-27'
+GROUP BY activity_date;
