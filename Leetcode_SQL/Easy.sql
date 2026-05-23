@@ -271,3 +271,14 @@ FROM Activity
 WHERE activity_date BETWEEN DATE_SUB('2019-07-27', INTERVAL 29 DAY)
 AND '2019-07-27'
 GROUP BY activity_date;
+
+-- Day 16 | Question 22
+-- LeetCode #1148. Article Views I
+-- Difficulty: Easy
+-- Topic: DISTINCT + ORDER BY 
+-- Find the number of active users for each day during the past 30 days ending on 2019-07-27.
+
+SELECT DISTINCT author_id AS id
+FROM Views
+WHERE author_id = viewer_id
+ORDER BY id;
