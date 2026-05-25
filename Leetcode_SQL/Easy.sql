@@ -321,3 +321,21 @@ ROUND(
 ,2) AS poor_query_percentage
 FROM Queries
 GROUP BY query_name;
+
+-- Day 17 | Question 25
+-- LeetCode #1251. Average Selling Price
+-- Difficulty: Easy
+-- Topic: LEFT JOIN + SUM + IFNULL + GROUP BY
+-- Find the average selling price for each product.
+
+SELECT
+    p.product_id,
+    ROUND(
+          IFNULL(
+                  SUM(u.units * p.price) / SUM(u.units), 0)
+       ,2) AS average_price
+FROM Prices p
+LEFT JOIN UnitsSold u
+ON p.product_id = u.product_id
+AND u.purchase_date BETWEEN p.start_date AND p.end_date
+GROUP BY p.product_id;
