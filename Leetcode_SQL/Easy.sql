@@ -339,3 +339,25 @@ LEFT JOIN UnitsSold u
 ON p.product_id = u.product_id
 AND u.purchase_date BETWEEN p.start_date AND p.end_date
 GROUP BY p.product_id;
+
+
+-- Day 18 | Question 26
+-- LeetCode #1280. Students and Examinations
+-- Difficulty: Easy
+-- Topic: CROSS JOIN + LEFT JOIN + COUNT + GROUP BY
+-- Find the number of times each student attended each exam.
+
+SELECT s.student_id,
+       s.student_name,
+       sub.subject_name,
+       COUNT(e.subject_name) AS attended_exams
+FROM Students s
+CROSS JOIN Subjects sub
+LEFT JOIN Examinations e
+ON s.student_id = e.student_id
+AND sub.subject_name = e.subject_name
+GROUP BY s.student_id,
+         s.student_name,
+         sub.subject_name
+ORDER BY s.student_id,
+         sub.subject_name;
