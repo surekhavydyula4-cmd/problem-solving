@@ -361,3 +361,19 @@ GROUP BY s.student_id,
          sub.subject_name
 ORDER BY s.student_id,
          sub.subject_name;
+
+-- Day 19 | Question 27
+-- LeetCode #1327. List the Products Ordered in a Period
+-- Difficulty: Easy
+-- Topic: JOIN + WHERE + GROUP BY + HAVING
+-- Find products with at least 100 units ordered in February 2020.
+
+SELECT p.product_name,
+       SUM(o.unit) AS unit
+FROM Products p
+JOIN Orders o
+ON p.product_id = o.product_id
+WHERE YEAR(o.order_date) = 2020
+  AND MONTH(o.order_date) = 2
+GROUP BY p.product_id, p.product_name
+HAVING SUM(o.unit) >= 100;
