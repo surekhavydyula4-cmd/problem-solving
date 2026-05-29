@@ -377,3 +377,15 @@ WHERE YEAR(o.order_date) = 2020
   AND MONTH(o.order_date) = 2
 GROUP BY p.product_id, p.product_name
 HAVING SUM(o.unit) >= 100;
+
+-- Day 20 | Question 28
+-- LeetCode #1378. Replace Employee ID With The Unique Identifier
+-- Difficulty: Easy
+-- Topic: LEFT JOIN
+-- Replace employee IDs with their unique identifiers.
+
+SELECT ei.unique_id, e.name
+FROM Employees e
+LEFT JOIN EmployeeUNI ei
+ON ei.id = e.id;
+
