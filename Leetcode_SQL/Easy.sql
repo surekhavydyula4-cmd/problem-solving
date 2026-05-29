@@ -389,3 +389,17 @@ FROM Employees e
 LEFT JOIN EmployeeUNI ei
 ON ei.id = e.id;
 
+-- Day 20 | Question 29
+-- LeetCode #1407. Top Travellers
+-- Difficulty: Easy
+-- Topic: LEFT JOIN + GROUP BY + SUM + IFNULL + ORDER BY
+-- Find the total travelled distance for each user and sort by distance.
+
+SELECT u.name,
+       IFNULL(SUM(r.distance), 0) AS travelled_distance
+FROM Users u
+LEFT JOIN Rides r
+ON u.id = r.user_id
+GROUP BY u.id, u.name
+ORDER BY travelled_distance DESC, u.name ASC;
+
