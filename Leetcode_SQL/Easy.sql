@@ -403,3 +403,15 @@ ON u.id = r.user_id
 GROUP BY u.id, u.name
 ORDER BY travelled_distance DESC, u.name ASC;
 
+-- Day 20 | Question 30
+-- LeetCode #1484. Group Sold Products By The Date
+-- Difficulty: Easy
+-- Topic: GROUP BY + COUNT DISTINCT + GROUP_CONCAT + ORDER BY
+-- Group products sold on the same date into a comma-separated list.
+
+SELECT sell_date,
+       COUNT(DISTINCT product) AS num_sold,
+       GROUP_CONCAT(DISTINCT product ORDER BY product SEPARATOR ',') AS products
+FROM Activities
+GROUP BY sell_date
+ORDER BY sell_date;
