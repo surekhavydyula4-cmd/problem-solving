@@ -415,3 +415,17 @@ SELECT sell_date,
 FROM Activities
 GROUP BY sell_date
 ORDER BY sell_date;
+
+-- Day 21 | Question 31
+-- LeetCode #1527. Patients With a Condition
+-- Difficulty: Easy
+-- Topic: String Matching + LIKE + Pattern Search
+-- Find patients whose conditions contain a Type I Diabetes code (DIAB1).
+
+SELECT patient_id,
+       patient_name,
+       conditions
+FROM Patients
+WHERE conditions LIKE 'DIAB1%'
+   OR conditions LIKE '% DIAB1%';
+
