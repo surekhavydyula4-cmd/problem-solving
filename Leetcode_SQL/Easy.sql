@@ -443,3 +443,21 @@ LEFT JOIN Transactions t
        ON v.visit_id = t.visit_id
 WHERE t.transaction_id IS NULL
 GROUP BY v.customer_id;
+
+-- Day 22 | Question 33
+-- LeetCode #1587. Bank Account Summary II
+-- Difficulty: Easy
+-- Topic: JOIN + GROUP BY + HAVING + SUM
+-- Find users whose account balance is greater than 10000.
+
+SELECT
+    u.name,
+    SUM(t.amount) AS balance
+FROM Users u
+JOIN Transactions t
+    ON u.account = t.account
+GROUP BY
+    u.account,
+    u.name
+HAVING SUM(t.amount) > 10000;
+
