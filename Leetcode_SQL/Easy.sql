@@ -461,3 +461,19 @@ GROUP BY
     u.name
 HAVING SUM(t.amount) > 10000;
 
+-- Day 23 | Question 34
+-- LeetCode #1633. Percentage of Users Attended a Contest
+-- Difficulty: Easy
+-- Topic: GROUP BY + COUNT + Subquery + ROUND
+-- Find the percentage of users registered in each contest.
+
+SELECT
+    contest_id,
+    ROUND(
+        COUNT(user_id) * 100.0 /
+        (SELECT COUNT(*) FROM Users),
+        2
+    ) AS percentage
+FROM Register
+GROUP BY contest_id
+ORDER BY percentage DESC, contest_id ASC;
