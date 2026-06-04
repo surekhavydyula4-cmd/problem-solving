@@ -509,3 +509,14 @@ SELECT
     ) AS name
 FROM Users
 ORDER BY user_id;
+
+-- Day 25 | Question 37
+-- LeetCode #1683. Invalid Tweets
+-- Difficulty: Easy
+-- Topic: String Functions (LENGTH) + WHERE
+-- Find tweet IDs where the content length is greater than 15 characters.
+
+SELECT
+    tweet_id
+FROM Tweets
+WHERE LENGTH(content) > 15;
