@@ -520,3 +520,17 @@ SELECT
     tweet_id
 FROM Tweets
 WHERE LENGTH(content) > 15;
+
+-- Day 25 | Question 38
+-- LeetCode #1693. Daily Leads and Partners
+-- Difficulty: Easy
+-- Topic: GROUP BY + COUNT DISTINCT
+-- Find the number of unique leads and unique partners for each date and make.
+
+SELECT
+    date_id,
+    make_name,
+    COUNT(DISTINCT lead_id) AS unique_leads,
+    COUNT(DISTINCT partner_id) AS unique_partners
+FROM DailySales
+GROUP BY date_id, make_name;
