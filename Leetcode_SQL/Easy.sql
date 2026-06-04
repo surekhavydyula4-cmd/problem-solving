@@ -494,3 +494,18 @@ JOIN Activity b
 WHERE a.activity_type = 'start'
     AND b.activity_type = 'end'
 GROUP BY a.machine_id;
+
+-- Day 25 | Question 36
+-- LeetCode #1667. Fix Names in a Table
+-- Difficulty: Easy
+-- Topic: String Functions (UPPER, LOWER, SUBSTRING, CONCAT)
+-- Capitalize the first letter of each name and make the rest lowercase.
+
+SELECT
+    user_id,
+    CONCAT(
+        UPPER(SUBSTRING(name, 1, 1)),
+        LOWER(SUBSTRING(name, 2))
+    ) AS name
+FROM Users
+ORDER BY user_id;
