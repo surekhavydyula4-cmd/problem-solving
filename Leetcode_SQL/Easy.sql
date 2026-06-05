@@ -535,7 +535,7 @@ SELECT
 FROM DailySales
 GROUP BY date_id, make_name;
 
--- Day 25 | Question 39
+-- Day 26 | Question 39
 -- LeetCode #1729. Find Followers Count
 -- Difficulty: Easy
 -- Topic: GROUP BY + COUNT + ORDER BY
@@ -547,3 +547,21 @@ SELECT
 FROM Followers
 GROUP BY user_id
 ORDER BY user_id;
+
+-- Day 26 | Question 40
+-- LeetCode #1731. The Number of Employees Which Report to Each Employee
+-- Difficulty: Easy
+-- Topic: SELF JOIN + GROUP BY + COUNT + AVG + ROUND
+-- Find managers, the number of employees reporting to them,
+-- and the average age of their direct reports.
+
+SELECT
+    e1.employee_id,
+    e1.name,
+    COUNT(*) AS reports_count,
+    ROUND(AVG(e2.age)) AS average_age
+FROM Employees e1
+JOIN Employees e2
+    ON e1.employee_id = e2.reports_to
+GROUP BY e1.employee_id
+ORDER BY e1.employee_id;
