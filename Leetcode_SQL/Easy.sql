@@ -565,3 +565,17 @@ JOIN Employees e2
     ON e1.employee_id = e2.reports_to
 GROUP BY e1.employee_id
 ORDER BY e1.employee_id;
+
+-- Day 26 | Question 41
+-- LeetCode #1741. Find Total Time Spent by Each Employee
+-- Difficulty: Easy
+-- Topic: GROUP BY + SUM
+-- Calculate total time spent by each employee on each day.
+
+SELECT
+    event_day AS day,
+    emp_id,
+    SUM(out_time - in_time) AS total_time
+FROM Employees
+GROUP BY event_day, emp_id
+ORDER BY emp_id, day;
