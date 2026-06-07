@@ -580,7 +580,7 @@ FROM Employees
 GROUP BY event_day, emp_id
 ORDER BY emp_id, day;
 
--- Day 26 | Question 42
+-- Day 27 | Question 42
 -- LeetCode #1795. Rearrange Products Table
 -- Difficulty: Easy
 -- Topic: UNION ALL + Unpivoting
@@ -601,3 +601,23 @@ UNION ALL
 SELECT product_id, 'store3' AS store, store3 AS price
 FROM Products
 WHERE store3 IS NOT NULL;
+
+-- Day 27 | Question 43
+-- LeetCode #1873. Calculate Special Bonus
+-- Difficulty: Easy
+-- Topic: CASE WHEN + MOD + LIKE
+-- Give the full salary as a bonus if:
+-- 1. Employee ID is odd
+-- 2. Employee name does not start with 'M'
+-- Otherwise, the bonus is 0.
+
+SELECT
+    employee_id,
+    CASE
+        WHEN MOD(employee_id, 2) != 0
+             AND name NOT LIKE 'M%'
+        THEN salary
+        ELSE 0
+    END AS bonus
+FROM Employees
+ORDER BY employee_id;
