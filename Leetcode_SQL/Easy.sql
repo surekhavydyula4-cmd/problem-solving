@@ -621,3 +621,16 @@ SELECT
     END AS bonus
 FROM Employees
 ORDER BY employee_id;
+
+-- Day 27 | Question 44
+-- LeetCode #1890. The Latest Login in 2020
+-- Difficulty: Easy
+-- Topic: WHERE + YEAR + GROUP BY + MAX
+-- Find each user's latest login timestamp in the year 2020.
+
+SELECT
+    user_id,
+    MAX(time_stamp) AS last_stamp
+FROM Logins
+WHERE YEAR(time_stamp) = 2020
+GROUP BY user_id;
