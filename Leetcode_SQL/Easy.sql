@@ -634,3 +634,20 @@ SELECT
 FROM Logins
 WHERE YEAR(time_stamp) = 2020
 GROUP BY user_id;
+
+-- Day 28 | Question 45
+-- LeetCode #1978. Employees Whose Manager Left the Company
+-- Difficulty: Easy
+-- Topic: Subquery + NOT IN + ORDER BY
+-- Find employees whose manager is no longer in the company
+-- and whose salary is less than 30000.
+
+SELECT
+    employee_id
+FROM Employees
+WHERE manager_id NOT IN (
+    SELECT employee_id
+    FROM Employees
+)
+AND salary < 30000
+ORDER BY employee_id;
