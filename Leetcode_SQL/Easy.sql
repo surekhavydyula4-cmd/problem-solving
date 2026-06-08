@@ -651,3 +651,15 @@ WHERE manager_id NOT IN (
 )
 AND salary < 30000
 ORDER BY employee_id;
+
+-- Day 28 | Question 46
+-- LeetCode #2356. Number of Unique Subjects Taught by Each Teacher
+-- Difficulty: Easy
+-- Topic: GROUP BY + COUNT(DISTINCT)
+-- Find the number of unique subjects taught by each teacher.
+
+SELECT
+    teacher_id,
+    COUNT(DISTINCT subject_id) AS cnt
+FROM Teacher
+GROUP BY teacher_id;
