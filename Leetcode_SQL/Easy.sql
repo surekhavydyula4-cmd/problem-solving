@@ -663,3 +663,20 @@ SELECT
     COUNT(DISTINCT subject_id) AS cnt
 FROM Teacher
 GROUP BY teacher_id;
+
+-- Day 29 | Question 47
+-- LeetCode #3436. Find Valid Emails
+-- Difficulty: Easy
+-- Topic: REGEXP + String Pattern Matching
+-- Find all valid email addresses that:
+-- 1. Contain exactly one @
+-- 2. End with .com
+-- 3. Have only letters, numbers, or underscores before @
+-- 4. Have only letters between @ and .com
+
+SELECT
+    user_id,
+    email
+FROM Users
+WHERE email REGEXP '^[A-Za-z0-9_]+@[A-Za-z]+\\.com$'
+ORDER BY user_id;
