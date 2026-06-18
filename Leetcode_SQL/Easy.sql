@@ -680,3 +680,30 @@ SELECT
 FROM Users
 WHERE email REGEXP '^[A-Za-z0-9_]+@[A-Za-z]+\\.com$'
 ORDER BY user_id;
+
+-- Day 30 | Question 48
+-- LeetCode #1965. Employees With Missing Information
+-- Difficulty: Easy
+-- Topic: UNION + Missing Data Detection
+-- Find all employee IDs where:
+-- 1. Employee name is missing
+-- 2. Employee salary is missing
+-- Return results in ascending order
+
+SELECT employee_id
+FROM Employees
+WHERE employee_id NOT IN (
+    SELECT employee_id
+    FROM Salaries
+)
+
+UNION
+
+SELECT employee_id
+FROM Salaries
+WHERE employee_id NOT IN (
+    SELECT employee_id
+    FROM Employees
+)
+
+ORDER BY employee_id;
