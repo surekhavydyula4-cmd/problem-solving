@@ -19,3 +19,13 @@ SELECT NAME
 FROM CITY
 WHERE CountryCode = 'USA'
   AND Population > 120000;
+
+-- Day 2 | Question 2
+-- HackerRank: Select By ID
+-- Difficulty: Easy
+-- Topic: SELECT + WHERE
+-- Retrieve all columns for ID.
+
+SELECT *
+FROM CITY
+WHERE ID=1661;
