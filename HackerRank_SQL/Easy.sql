@@ -8,3 +8,14 @@ SELECT *
 FROM CITY
 WHERE CountryCode = 'USA'
   AND Population > 100000;
+
+-- Day 2 | Question 2
+-- HackerRank: Revising the Select Query II
+-- Difficulty: Easy
+-- Topic: SELECT + WHERE
+-- Retrieve name column for American cities with a population greater than 120000.
+
+SELECT NAME
+FROM CITY
+WHERE CountryCode = 'USA'
+  AND Population > 120000;
